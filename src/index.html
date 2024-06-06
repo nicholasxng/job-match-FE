@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Job Match</title>
-</head>
-<body>
-    <h1>Job Match Front-end</h1>
-</body>
+  <head>
+    <title>resume match score</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+  </head>
+  <body>
+    <h1>resume match score</h1>
+    <form id="resume-form">
+      <label for="github-url">GitHub Repository URL:</label>
+      <input type="text" id="github-url" name="github-url" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="error-message"></div>
+    <script src="/src/js/app.js"></script>
+  </body>
 </html>
