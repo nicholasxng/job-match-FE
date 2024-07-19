@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>resume match score</title>
-    <link rel="stylesheet" href="/src/css/style.css">
-  </head>
-  <body>
-    <h1>resume match score</h1>
-    <form id="resume-form">
-      <label for="github-url">GitHub Repository URL:</label>
-      <input type="text" id="github-url" name="github-url" required>
-      <button type="submit">Submit</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Match App</title>
+</head>
+<body>
+    <h1>Resume and Job Description ATS Match</h1>
+    <form id="atsMatchForm">
+        <label for="resume">Resume:</label><br>
+        <textarea id="resume" name="resume" rows="10" cols="50"></textarea><br><br>
+        
+        <label for="jobDescription">Job Description:</label><br>
+        <textarea id="jobDescription" name="jobDescription" rows="10" cols="50"></textarea><br><br>
+        
+        <button type="button" onclick="submitForm()">Submit</button>
     </form>
-    <div id="error-message"></div>
-    <script src="/src/js/app.js"></script>
-  </body>
+    
+    <h2>Match Result:</h2>
+    <pre id="result"></pre>
+
+    <script>
+        async function submitForm() {
+            const resume = document.getElementById('resume').value;
+            const jobDescription = document.getElementById('jobDescription').value;
+
+            const response = await fetch('/match', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ resume, jobDescription }),
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+        }
+    </script>
+</body>
 </html>
