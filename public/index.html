@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Match App</title>
+    <link rel="stylesheet" href="/src/css/styles.css">
+</head>
+<body>
+    <h1>Resume and Job Description ATS Match</h1>
+    <form id="atsMatchForm">
+        <label for="resume">Resume:</label><br>
+        <textarea id="resume" name="resume" rows="10" cols="50"></textarea><br><br>
+        
+        <label for="jobDescription">Job Description:</label><br>
+        <textarea id="jobDescription" name="jobDescription" rows="10" cols="50"></textarea><br><br>
+        
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    
+    <h2>Match Result:</h2>
+    <pre id="result"></pre>
+
+    <script src="/src/js/main.js"></script>
+</body>
+</html>
 
