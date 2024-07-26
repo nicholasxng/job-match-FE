@@ -2,7 +2,7 @@ async function submitForm() {
     const resume = document.getElementById('resume').value;
     const jobDescription = document.getElementById('jobDescription').value;
 
-    const response = await fetch('/match', {
+    const response = await fetch('http://localhost:3000/match', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
